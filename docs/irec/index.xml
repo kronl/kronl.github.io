@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IREC on Kronl</title>
+    <link>https://example.com/docs/irec/</link>
+    <description>Recent content in IREC on Kronl</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/irec/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction</title>
+      <link>https://example.com/docs/irec/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irec/introduction/</guid>
+      <description>For fuzzing, it is very important to increase efficiency. Without driver&#39;s interface information, a routine that cannot be accessed occur because the constraints on the IOCTL routine cannot be resolved. This means that the coverage cannot be increasing smoothly in fuzzing. From this, we can see that driver interface information is essential for efficient driver fuzzing due to the structural characteristics of the driver.
+In addition, the driver has different constraints for access to each of the IOCTL routines.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://example.com/docs/irec/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irec/getting-started/</guid>
+      <description>We recommend python3.8 virtual environment to use IREC.
+1# make virtual environment 2$ pip install virtualenv 3$ pip install virtualenvwrapper 4 5$ virtualenv $YOUR_NAME 6$ source $YOUR_NAME/bin/activate 7 8# requirements 9$ apt install radare2 10$ pip install angr boltons argparse ipdb r2pipe </description>
+    </item>
+    
+    <item>
+      <title>Core concepts</title>
+      <link>https://example.com/docs/irec/internals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irec/internals/</guid>
+      <description>IREC project was originally designed to recover I/O Communication interface of WDM (Windows Driver Model) driver. The WDM interface includes the following information.
+ All control codes implemented in the driver. InputBufferLength, OutputBufferLength constraints for each control code.  Section below describes how to recover an interface. Perhaps this is hard to understand if you don&#39;t know the concept of symbolic extension or angr. Find DispatchDeviceControl function DispatchDeviceControl function is a dispatcher handles IRP with I/O control code.</description>
+    </item>
+    
+  </channel>
+</rss>

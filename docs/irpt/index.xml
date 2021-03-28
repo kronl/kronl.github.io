@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IRPT on Kronl</title>
+    <link>https://example.com/docs/irpt/</link>
+    <description>Recent content in IRPT on Kronl</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/irpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction</title>
+      <link>https://example.com/docs/irpt/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irpt/introduction/</guid>
+      <description>&amp;quot;kAFL: Hardware-Assisted Feedback Fuzzing for OS Kernels&amp;quot; noted that non-determinism due to kernel-space interrupts, kernel threads, statefulness, and similar mechanisms makes kernel fuzzing more difficult. The kernel region has a memory structure different from that of the user land, and the execution flow can be changed by various unexpected requests such as interrupts. So it is not easy to perform a fuzzing test focusing only on a specific target region.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://example.com/docs/irpt/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irpt/getting-started/</guid>
+      <description>Install IRPT Installation requires multiple components, some of which can depend on Internet connectivity and defaults of your distribution or version. It is recommended to install step by step.
+1git clone irpt 2cd ~/irpt 3./install.sh deps # check platform and install dependencies 4./install.sh perms # allow current user to control KVM (/dev/kvm) 5./install.sh qemu # git clone qemu-pt and build Qemu 6./install.sh linux # git clone kvm-pt and build Linux It is safe to re-execute any of these commands after failure, for example if not all dependencies could have been downloaded.</description>
+    </item>
+    
+    <item>
+      <title>Core concepts</title>
+      <link>https://example.com/docs/irpt/internals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irpt/internals/</guid>
+      <description>Coverage-guided fuzzing The dynamic instrumentation that a closed-source binary requires can be generated using DynamoRIO. Also, pe-afl or syzygy can be used for static instrumentation. But these projects are designed for application&#39;s instrumentation not a kernel. So we started looking for a project that can measure the coverage of Windows kernel.
+A few days later, we found kAFL that uses Intel PT technology and decided to modify it to support Windows driver.</description>
+    </item>
+    
+  </channel>
+</rss>

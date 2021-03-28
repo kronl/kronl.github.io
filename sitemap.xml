@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://example.com/docs/</loc>
+  </url><url>
+    <loc>https://example.com/docs/ircap/introduction/</loc>
+  </url><url>
+    <loc>https://example.com/docs/irec/introduction/</loc>
+  </url><url>
+    <loc>https://example.com/docs/irpt/introduction/</loc>
+  </url><url>
+    <loc>https://example.com/docs/irec/</loc>
+  </url><url>
+    <loc>https://example.com/docs/irpt/</loc>
+  </url><url>
+    <loc>https://example.com/docs/ircap/getting-started/</loc>
+  </url><url>
+    <loc>https://example.com/docs/irec/getting-started/</loc>
+  </url><url>
+    <loc>https://example.com/docs/irpt/getting-started/</loc>
+  </url><url>
+    <loc>https://example.com/docs/ircap/internals/</loc>
+  </url><url>
+    <loc>https://example.com/docs/irec/internals/</loc>
+  </url><url>
+    <loc>https://example.com/docs/irpt/internals/</loc>
+  </url><url>
+    <loc>https://example.com/docs/ircap/</loc>
+  </url><url>
+    <loc>https://example.com/</loc>
+  </url><url>
+    <loc>https://example.com/search/</loc>
+  </url>
+</urlset>

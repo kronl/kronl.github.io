@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kronl</title>
+    <link>https://example.com/</link>
+    <description>Recent content on Kronl</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction</title>
+      <link>https://example.com/docs/ircap/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/ircap/introduction/</guid>
+      <description>A variety of interesting corpus are important to improve efficiency of coverage-guided fuzzing. If we able to capture I/O communication between an application and kernel, it will be of great help to fuzzer. So we had to find a way to use IRP requests as initial seeds.
+What is IRCAP? IRCAP allow you to intercept all IRP requests to the target driver without any side effects. It can be used to collect interesting corpus for fuzzing and can manipulate I/O communication between an application and kernel.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://example.com/docs/irec/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irec/introduction/</guid>
+      <description>For fuzzing, it is very important to increase efficiency. Without driver&#39;s interface information, a routine that cannot be accessed occur because the constraints on the IOCTL routine cannot be resolved. This means that the coverage cannot be increasing smoothly in fuzzing. From this, we can see that driver interface information is essential for efficient driver fuzzing due to the structural characteristics of the driver.
+In addition, the driver has different constraints for access to each of the IOCTL routines.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://example.com/docs/irpt/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irpt/introduction/</guid>
+      <description>&amp;quot;kAFL: Hardware-Assisted Feedback Fuzzing for OS Kernels&amp;quot; noted that non-determinism due to kernel-space interrupts, kernel threads, statefulness, and similar mechanisms makes kernel fuzzing more difficult. The kernel region has a memory structure different from that of the user land, and the execution flow can be changed by various unexpected requests such as interrupts. So it is not easy to perform a fuzzing test focusing only on a specific target region.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://example.com/docs/ircap/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/ircap/getting-started/</guid>
+      <description>How to use You need to install Visual Studio and Windows Driver Kit. Once you have completed building an driver development environment, open ircap/hook.h for editing.
+1// ircap/hook.h 2#pragma once 3 4UNICODE_STRING TARGET_DEVICE_NAME = RTL_CONSTANT_STRING(L&amp;#34;\\Driver\\@@DEVICE_NAME@@&amp;#34;); 5UNICODE_STRING PROGRAM_FILE_PATH = RTL_CONSTANT_STRING(L&amp;#34;\\DosDevices\\C:\\program.irp&amp;#34;); Specfiy TARGET_DEVICE_NAME to the device name you want to hook. And PROGRAM_FILE_PATH is the file path where captured IRP requests are stored.
+To capture IRP requests to target driver, follow these steps (Run cmd as administrator):</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://example.com/docs/irec/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irec/getting-started/</guid>
+      <description>We recommend python3.8 virtual environment to use IREC.
+1# make virtual environment 2$ pip install virtualenv 3$ pip install virtualenvwrapper 4 5$ virtualenv $YOUR_NAME 6$ source $YOUR_NAME/bin/activate 7 8# requirements 9$ apt install radare2 10$ pip install angr boltons argparse ipdb r2pipe </description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://example.com/docs/irpt/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irpt/getting-started/</guid>
+      <description>Install IRPT Installation requires multiple components, some of which can depend on Internet connectivity and defaults of your distribution or version. It is recommended to install step by step.
+1git clone irpt 2cd ~/irpt 3./install.sh deps # check platform and install dependencies 4./install.sh perms # allow current user to control KVM (/dev/kvm) 5./install.sh qemu # git clone qemu-pt and build Qemu 6./install.sh linux # git clone kvm-pt and build Linux It is safe to re-execute any of these commands after failure, for example if not all dependencies could have been downloaded.</description>
+    </item>
+    
+    <item>
+      <title>Core concepts</title>
+      <link>https://example.com/docs/ircap/internals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/ircap/internals/</guid>
+      <description>IRCAP is a standalone driver which hooks DispatchDeviceControl of the target driver. Implementation 1// ircap/ircap.c 2NTSTATUS 3DriverEntry( 4	_In_ PDRIVER_OBJECT	DriverObject, 5	_In_ PUNICODE_STRING	RegistryPath 6	) 7{ 8	... 9	ntStatus = PsCreateSystemThread(&amp;amp;threadHandle, 10	THREAD_ALL_ACCESS, 11	NULL, 12	(HANDLE)0, 13	NULL, 14	ThreadIRPHooker, 15	NULL); 16 17	... 18	KeWaitForSingleObject(threadObject, Executive, KernelMode, FALSE, NULL); 19	... 20} It is loaded at boot time and creates a system thread with ThreadIRPHooker routine.</description>
+    </item>
+    
+    <item>
+      <title>Core concepts</title>
+      <link>https://example.com/docs/irec/internals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irec/internals/</guid>
+      <description>IREC project was originally designed to recover I/O Communication interface of WDM (Windows Driver Model) driver. The WDM interface includes the following information.
+ All control codes implemented in the driver. InputBufferLength, OutputBufferLength constraints for each control code.  Section below describes how to recover an interface. Perhaps this is hard to understand if you don&#39;t know the concept of symbolic extension or angr. Find DispatchDeviceControl function DispatchDeviceControl function is a dispatcher handles IRP with I/O control code.</description>
+    </item>
+    
+    <item>
+      <title>Core concepts</title>
+      <link>https://example.com/docs/irpt/internals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/irpt/internals/</guid>
+      <description>Coverage-guided fuzzing The dynamic instrumentation that a closed-source binary requires can be generated using DynamoRIO. Also, pe-afl or syzygy can be used for static instrumentation. But these projects are designed for application&#39;s instrumentation not a kernel. So we started looking for a project that can measure the coverage of Windows kernel.
+A few days later, we found kAFL that uses Intel PT technology and decided to modify it to support Windows driver.</description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://example.com/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/search/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

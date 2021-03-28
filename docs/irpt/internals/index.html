@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Hugo 0.82.0" />
+<link rel="apple-touch-icon" sizes="180x180" href='https://example.com/favicons/apple-touch-icon.png'>
+<link rel="icon" type="image/png" sizes="32x32" href='https://example.com/favicons/favicon-32x32.png'>
+<link rel="icon" type="image/png" sizes="16x16" href='https://example.com/favicons/favicon-16x16.png'>
+<link rel="manifest" href='https://example.com/favicons/site.webmanifest'>
+<link rel="mask-icon" href='https://example.com/favicons/safari-pinned-tab.svg'  color="#004750">
+<link rel="shortcut icon" href='https://example.com/favicons/favicon.png'>
+<meta name="msapplication-config" content='https://example.com/favicons/browserconfig.xml'>
+<title>Core concepts | Kronl</title><meta property="og:title" content="Core concepts" />
+<meta property="og:description" content="Core concepts of IRPT
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/irpt/internals/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Core concepts">
+<meta itemprop="description" content="Core concepts of IRPT
+">
+
+<meta itemprop="wordCount" content="2423">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Core concepts"/>
+<meta name="twitter:description" content="Core concepts of IRPT
+"/>
+
+
+<link rel="stylesheet" href="https://example.com/css/styles.75a94564586caad9bdb0f6c540c31db83f9f765d7dcba9c2c2a3521132090c65f5bbbb36101696c3837362ca294c25d4fd7c02d8734af7ef1a1f57468491e997.css" integrity="sha512-dalFZFhsqtm9sPbFQMMduD&#43;fdl19y6nCwqNSETIJDGX1u7s2EBaWw4NzYsopTCXU/XwC2HNK9&#43;8aH1dGhJHplw==">
+
+
+
+
+  <meta name="description" content="Core concepts of IRPT
+">
+
+</head>
+  
+    
+  
+<body class="page-page"data-code="100" data-lines="true" >
+  <header class="nav_header">
+<nav class="wrap nav menu">
+	<a href="https://example.com/" class="nav_brand">
+		<picture data-lit="https://example.com/images/banner.png" data-dark="https://example.com/images/banner-light.png">
+			
+			<source srcset = 'https://example.com/images/banner-light.png' media="(prefers-color-scheme: dark)">
+			
+			<img srcset = 'https://example.com/images/banner.png' alt = 'Kronl Logo'>
+		</picture>
+		<label class="nav_toggle toggle" title='Site Menu' role="button">
+			<svg class="icon icon_harmburger">
+  <use xlink:href="#harmburger"></use>
+</svg>
+		</label>
+	</a>
+	<ul class="nav_body">
+		<li class="nav-item">
+<div class="search">
+  <label for="find" class="search_label"><svg class="icon icon_search">
+  <use xlink:href="#search"></use>
+</svg>
+  </label>
+  <input type="search" class="search_field" placeholder='Search the docs' id="find" autocomplete="off">
+  <div class="search_results results"></div>
+</div>
+
+
+
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="https://example.com/"><span>Home</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="https://example.com/docs/"><span>Docs</span></a>
+		</li>
+		
+		<li class="nav-item nav_repo">
+			<a class="nav-link" href="https://github.com/kronl" target="_blank">
+				
+					GitHub
+				
+			</a>
+		</li>
+		<li class="nav-item">
+<div class = 'color_mode'>
+  <label for = 'mode'>
+    <picture data-lit="https://example.com/icons/sun.svg" data-dark="https://example.com/icons/moon.svg">
+      
+        <source srcset = 'https://example.com/icons/moon.svg' media="(prefers-color-scheme: dark)">
+      
+      <img srcset = 'https://example.com/icons/sun.svg' alt = 'Light/Dark Mode Icon' class="color_icon">
+    </picture>
+  </label>
+  <input type = 'checkbox' class = 'color_choice' id = 'mode' title="Toggle Dark Mode">
+</div>
+</li>
+	</ul>
+</nav>
+
+  </header>
+  <div class="main wrap pt-4"><div class="grid-auto"><aside class="aside menu">
+  <div>
+    <label class="aside_toggle toggle" title='Docs Menu' role="button">Docs Menu <svg class="icon icon_harmburger">
+  <use xlink:href="#harmburger"></use>
+</svg></label>
+  </div>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://example.com/docs/" class="group">Introduction</a></h2>
+      <section class="" id="docs-introduction">
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://example.com/docs/irec/" class="group">IREC</a></h2>
+      <section class="" id="docs-irec">
+        <h3 class="section_link"><a id="docs-introduction" href="https://example.com/docs/irec/introduction/">Introduction</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-is-irec">What is IREC?</a></li>
+        <li><a href="#components-of-irec">Components of IREC</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-getting-started" href="https://example.com/docs/irec/getting-started/">Getting Started</a></h3><nav id="TableOfContents"></nav>
+        <h3 class="section_link"><a id="docs-core-concepts" href="https://example.com/docs/irec/internals/">Core concepts</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#find-dispatchdevicecontrol-function">Find DispatchDeviceControl function</a></li>
+        <li><a href="#obtain-all-control-codes">Obtain all control codes</a></li>
+        <li><a href="#inspect-constraints">Inspect constraints</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </section>
+  </section>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://example.com/docs/irpt/" class="group">IRPT</a></h2>
+      <section class="" id="docs-irpt">
+        <h3 class="section_link"><a id="docs-introduction" href="https://example.com/docs/irpt/introduction/">Introduction</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-is-irpt">What is IRPT?</a></li>
+        <li><a href="#history-of-irpt">History of IRPT</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-getting-started" href="https://example.com/docs/irpt/getting-started/">Getting Started</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#install-irpt">Install IRPT</a></li>
+        <li><a href="#setting-qemu">Setting QEMU</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link active"><a id="docs-core-concepts" href="https://example.com/docs/irpt/internals/">Core concepts</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#coverage-guided-fuzzing">Coverage-guided fuzzing</a></li>
+        <li><a href="#fuzzing-a-windows-driver">Fuzzing a Windows driver</a></li>
+        <li><a href="#components-of-irpt">Components of IRPT</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </section>
+  </section>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://example.com/docs/ircap/" class="group">IRCAP</a></h2>
+      <section class="" id="docs-ircap">
+        <h3 class="section_link"><a id="docs-introduction" href="https://example.com/docs/ircap/introduction/">Introduction</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-is-ircap">What is IRCAP?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-getting-started" href="https://example.com/docs/ircap/getting-started/">Getting Started</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#how-to-use">How to use</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-core-concepts" href="https://example.com/docs/ircap/internals/">Core concepts</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#implementation">Implementation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </section>
+  </section>
+      </section>
+  </section>
+</aside>
+
+  <main class="content">
+    <h1>Core concepts</h1><h3 id="coverage-guided-fuzzing">Coverage-guided fuzzing</h3>
+<p>The dynamic instrumentation that a closed-source binary requires can be generated using <code>DynamoRIO</code>. Also, <code>pe-afl</code> or <code>syzygy</code> can be used for static instrumentation. But these projects are designed for application's instrumentation not a kernel. So we started looking for a project that can measure the coverage of Windows kernel.</p>
+<p>A few days later, we found kAFL that uses Intel PT technology and decided to modify it to support Windows driver.</p>
+<p>QEMU is possible to create multiple hardware-supported virtual machines (VMs) on a single logical CPU through Intel’s hardware virtualization technology, Intel VT-x. In this case, each VM has a set of its own vCPUs and Intel Processor Tracing(Intel PT) allows you to trace the execution flow of it. So we can get all the execution flow of QEMU's guest and also Windows kernel.
+<br><br></p>
+<h3 id="fuzzing-a-windows-driver">Fuzzing a Windows driver</h3>
+<p>Even if it is possible to measure the coverage of the Window driver, there's a lot of challenges to solve.</p>
+<ol>
+<li>
+<p>Lack of information about IOCTL interface.</p>
+<p>If we don't know about IOCTL interface like I/O control codes and <code>InputBufferLength</code> in advance, performance of fuzzing will drop dramatically.</p>
+<p>→ <strong>IREC</strong> can recover all the details of IOCTL interface. Then, <strong>IRPT</strong> mutates and generates test cases based on this interface.</p>
+</li>
+<li>
+<p>Difficult to collect interesting seeds.</p>
+<p>An application will communicates with Windows driver via <code>DeviceIoControl</code> function. If you want to trace all about communication, it needs to hook IOCTL dispatcher function.</p>
+<p>→ <strong>IRCAP</strong> can capture all IRP packets and store them by serialized format. Then, <strong>IRPT</strong> parses and uses it as an initial test case.</p>
+</li>
+<li>
+<p>The previous IRP request may affect the next due to global variables, lock, mutex or etc. 
+We call these types of problems <strong>IOCTL Dependency (or dependency)</strong>. To solve the dependency problem, We searched for existing studies, but we couldn't find any related materials. Therefore, we had to research and develop a framework ourselves that could flexibly respond to these problems. The below section describes the internal of the framework and how to solve the dependency completely.
+<br><br></p>
+</li>
+</ol>
+<h3 id="components-of-irpt">Components of IRPT</h3>
+<p>
+<picture class="nav_logo" data-lit="https://example.com/images/posts/irpt/irpt.png" data-dark="https://example.com/images/posts/irpt/irpt-light.png">
+  <source srcset="https://example.com/images/posts/irpt/irpt-light.png" media="(prefers-color-scheme: dark)">
+  <img srcset="https://example.com/images/posts/irpt/irpt.png" alt="irpt">
+</picture>
+
+<strong>IRPT</strong> consists of fuzzer, mutator, reproducer, optimizer, hypervisor and corpus database. Fuzzer brings a test case from <code>Corpus database</code> and sends mutated test case to <code>Hypervisor</code> via shared memory. The hypervisor measures its coverage and checks if new coverage or crash has been found. If the new coverage has been found, <code>Optimizer</code> verifies that a new coverage is measured again and sends to corpus database after minimization. If a crash is detected, <code>Reproducer</code> verifies that the crash occurs again and saves it as a file.
+<br><br></p>
+<h5 id="hypervisor">Hypervisor</h5>
+<p>The hypervisor runs QEMU which emulates Windows kernel and kvm (Kernel-based Virtual Machine). While the QEMU emulates an agent which actually communicates with Windows kernel, the kvm traces execution flow of kernel.</p>
+<p><strong>How to communicate with Fuzzer</strong> <br></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln">1</span><span class="c1"># common/qemu.py</span>
+<span class="ln">2</span><span class="k">class</span> <span class="nc">qemu</span><span class="p">:</span>
+<span class="ln">3</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qid</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">notifiers</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+<span class="ln">4</span>        <span class="o">...</span>
+<span class="ln">5</span>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span> <span class="o">+=</span> <span class="o">...</span>
+<span class="ln">6</span>            <span class="s2">&#34; -chardev socket,server,nowait,path=&#34;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_filename</span> <span class="o">+</span> \
+<span class="ln">7</span>            <span class="s2">&#34;,id=irpt_interface &#34;</span> <span class="o">+</span> \
+<span class="ln">8</span>            <span class="s2">&#34;-device irpt,chardev=irpt_interface&#34;</span> <span class="o">+</span> \
+</code></pre></div><p>When the fuzzer starts QEMU, It can create a socket that communicates with QEMU by specifying the <code>chardev</code> option. The fuzzer sends a byte character to this socket whenever it wants to call a specific operation of the QEMU. When the QEMU receives a byte from the fuzzer, <code>irpt_guest_receive</code> function below is invoked.
+<br><br></p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="ln"> 1</span><span class="c1">// pt/interface.c
+</span><span class="ln"> 2</span><span class="c1"></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">irpt_guest_receive</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">opaque</span><span class="p">,</span> <span class="k">const</span> <span class="n">uint8_t</span> <span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">){</span>
+<span class="ln"> 3</span>	<span class="n">kafl_mem_state</span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="n">opaque</span><span class="p">;</span>			
+<span class="ln"> 4</span>	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="ln"> 5</span>		<span class="k">switch</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]){</span>
+<span class="ln"> 6</span>			<span class="k">case</span> <span class="nl">KAFL_PROTO_RELEASE</span><span class="p">:</span>
+<span class="ln"> 7</span>				<span class="n">synchronization_unlock</span><span class="p">();</span>
+<span class="ln"> 8</span>				<span class="k">break</span><span class="p">;</span>
+<span class="ln"> 9</span>			
+<span class="ln">10</span>			<span class="p">...</span>
+<span class="ln">11</span>			<span class="k">case</span> <span class="nl">KAFL_PROTO_FINALIZE</span><span class="p">:</span>
+<span class="ln">12</span>				<span class="n">synchronization_disable_pt</span><span class="p">(</span><span class="n">qemu_get_cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="ln">13</span>				<span class="n">send_char</span><span class="p">(</span><span class="sc">&#39;F&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+<span class="ln">14</span>				<span class="k">break</span><span class="p">;</span>
+<span class="ln">15</span>		<span class="p">...</span>
+<span class="ln">16</span><span class="p">}</span>
+</code></pre></div><p>It is possible to send a byte to the fuzzer by <code>send_char</code> function, but it is usually used to notify if the requested operation did well.
+<br><br></p>
+<p><strong>Shared memory</strong> <br></p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="ln"> 1</span><span class="c1">// pt/interface.c
+</span><span class="ln"> 2</span><span class="c1"></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">pci_kafl_guest_realize</span><span class="p">(</span><span class="n">DeviceState</span> <span class="o">*</span><span class="n">dev</span><span class="p">,</span> <span class="n">Error</span> <span class="o">**</span><span class="n">errp</span><span class="p">){</span>
+<span class="ln"> 3</span>	<span class="p">...</span>
+<span class="ln"> 4</span>	
+<span class="ln"> 5</span>	<span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">data_bar_fd_0</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+<span class="ln"> 6</span>		<span class="n">kafl_guest_create_memory_bar</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">PROGRAM_SIZE</span><span class="p">,</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">data_bar_fd_0</span><span class="p">,</span> <span class="n">errp</span><span class="p">);</span>
+<span class="ln"> 7</span>	<span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">data_bar_fd_1</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+<span class="ln"> 8</span>		<span class="n">kafl_guest_create_memory_bar</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">PAYLOAD_SIZE</span><span class="p">,</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">data_bar_fd_1</span><span class="p">,</span> <span class="n">errp</span><span class="p">);</span>
+<span class="ln"> 9</span>	<span class="p">...</span>
+<span class="ln">10</span><span class="p">}</span>
+<span class="ln">11</span>
+<span class="ln">12</span><span class="p">...</span>
+<span class="ln">13</span><span class="k">static</span> <span class="n">Property</span> <span class="n">kafl_guest_properties</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+<span class="ln">14</span>	<span class="n">DEFINE_PROP_CHR</span><span class="p">(</span><span class="s">&#34;chardev&#34;</span><span class="p">,</span> <span class="n">kafl_mem_state</span><span class="p">,</span> <span class="n">chr</span><span class="p">),</span>
+<span class="ln">15</span>	<span class="n">DEFINE_PROP_STRING</span><span class="p">(</span><span class="s">&#34;shm0&#34;</span><span class="p">,</span> <span class="n">kafl_mem_state</span><span class="p">,</span> <span class="n">data_bar_fd_0</span><span class="p">),</span>
+<span class="ln">16</span>	<span class="n">DEFINE_PROP_STRING</span><span class="p">(</span><span class="s">&#34;shm1&#34;</span><span class="p">,</span> <span class="n">kafl_mem_state</span><span class="p">,</span> <span class="n">data_bar_fd_1</span><span class="p">),</span>
+<span class="ln">17</span>	<span class="n">DEFINE_PROP_STRING</span><span class="p">(</span><span class="s">&#34;bitmap&#34;</span><span class="p">,</span> <span class="n">kafl_mem_state</span><span class="p">,</span> <span class="n">bitmap_file</span><span class="p">),</span>
+<span class="ln">18</span>	<span class="n">DEFINE_PROP_STRING</span><span class="p">(</span><span class="s">&#34;coverage_map&#34;</span><span class="p">,</span> <span class="n">kafl_mem_state</span><span class="p">,</span> <span class="n">coverage_map_file</span><span class="p">),</span>
+<span class="ln">19</span>	<span class="p">...</span>
+<span class="ln">20</span>	<span class="n">DEFINE_PROP_END_OF_LIST</span><span class="p">(),</span>
+<span class="ln">21</span><span class="p">};</span>
+</code></pre></div><p>QEMU creates shared memories to send and receive large data.</p>
+<p>There are the four shared memories:</p>
+<ol>
+<li><code>shm0</code> : to receive a data contains agent and driver binary.</li>
+<li><code>shm1</code> : to receive serialized IRP requests.</li>
+<li><code>bitmap</code> : used to check that <code>program</code> reaches the new execution path.</li>
+<li><code>coverage_map</code> : used to track the execution flow of <code>program</code>.</li>
+</ol>
+<p>A detailed description of these shared memories is described later sections.
+<br><br></p>
+<p><strong>write_virtual_memory, read_virtual_memory</strong> <br></p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="ln">1</span><span class="c1">// pt/memory_access.h
+</span><span class="ln">2</span><span class="c1"></span><span class="kt">bool</span> <span class="nf">read_virtual_memory</span><span class="p">(</span><span class="n">uint64_t</span> <span class="n">address</span><span class="p">,</span> <span class="n">uint8_t</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">CPUState</span> <span class="o">*</span><span class="n">cpu</span><span class="p">);</span>
+<span class="ln">3</span><span class="kt">bool</span> <span class="nf">write_virtual_memory</span><span class="p">(</span><span class="n">uint64_t</span> <span class="n">address</span><span class="p">,</span> <span class="n">uint8_t</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">CPUState</span> <span class="o">*</span><span class="n">cpu</span><span class="p">);</span>
+</code></pre></div><p>It can access any virtual memory on guest even a kernel space. QEMU uses these functions and shared memory to deliver a data received from the fuzzer to agent.
+<br><br></p>
+<h5 id="agent">Agent</h5>
+<p>It first registers the target driver as a service. And it loads and opens the device, which calls DeviceIoControl function or other command sent from <code>fuzzer</code>.</p>
+<p><strong>How to communicate with Hypervisor</strong> <br></p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="ln"> 1</span><span class="c1">// kafl_user.h
+</span><span class="ln"> 2</span><span class="c1"></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">kAFL_hypercall</span><span class="p">(</span><span class="n">uint64_t</span> <span class="n">rbx</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="n">rcx</span><span class="p">){</span>
+<span class="ln"> 3</span>	<span class="n">uint64_t</span> <span class="n">rax</span> <span class="o">=</span> <span class="n">HYPERCALL_KAFL_RAX_ID</span><span class="p">;</span>
+<span class="ln"> 4</span>    <span class="k">asm</span> <span class="k">volatile</span><span class="p">(</span><span class="s">&#34;movq %0, %%rcx;&#34;</span>
+<span class="ln"> 5</span>				 <span class="s">&#34;movq %1, %%rbx;&#34;</span>  
+<span class="ln"> 6</span>				 <span class="s">&#34;movq %2, %%rax;&#34;</span>
+<span class="ln"> 7</span>				 <span class="s">&#34;vmcall&#34;</span> 
+<span class="ln"> 8</span>				<span class="o">:</span> 
+<span class="ln"> 9</span>				<span class="o">:</span> <span class="s">&#34;r&#34;</span> <span class="p">(</span><span class="n">rcx</span><span class="p">),</span> <span class="s">&#34;r&#34;</span> <span class="p">(</span><span class="n">rbx</span><span class="p">),</span> <span class="s">&#34;r&#34;</span> <span class="p">(</span><span class="n">rax</span><span class="p">)</span>
+<span class="ln">10</span>				<span class="o">:</span> <span class="s">&#34;rax&#34;</span><span class="p">,</span> <span class="s">&#34;rcx&#34;</span><span class="p">,</span> <span class="s">&#34;rbx&#34;</span>
+<span class="ln">11</span>				<span class="p">);</span>
+<span class="ln">12</span><span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="ln">1</span><span class="c1">// agent.cpp
+</span><span class="ln">2</span><span class="c1"></span><span class="p">...</span>
+<span class="ln">3</span><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">){</span>
+<span class="ln">4</span>    <span class="cm">/* submit the guest virtual address of the payload buffer */</span>
+<span class="ln">5</span>    <span class="n">hprintf</span><span class="p">(</span><span class="s">&#34;[+] Submitting buffer address to hypervisor...&#34;</span><span class="p">);</span>
+<span class="ln">6</span>    <span class="n">kAFL_hypercall</span><span class="p">(</span><span class="n">HYPERCALL_KAFL_GET_PAYLOAD</span><span class="p">,</span> <span class="p">(</span><span class="n">UINT64</span><span class="p">)</span><span class="n">payload_buffer</span><span class="p">);</span>
+<span class="ln">7</span>		<span class="p">...</span>
+<span class="ln">8</span><span class="p">}</span>
+</code></pre></div><p>When the agent wants to communicate with the hypervisor(QEMU) directly, it requests the hypercall with the syscall number and arguments. Then, QEMU process the hypercall according to the syscall number.</p>
+<p><strong>Anti IOCTL filter</strong> <br>
+
+<picture class="nav_logo" data-lit="https://example.com/images/posts/irpt/ioctl_filter.png" data-dark="https://example.com/images/posts/irpt/ioctl_filter.png">
+  <source srcset="https://example.com/images/posts/irpt/ioctl_filter.png" media="(prefers-color-scheme: dark)">
+  <img srcset="https://example.com/images/posts/irpt/ioctl_filter.png" alt="ioctl_filter">
+</picture>
+
+Above hex-ray shows that the current process ID is used for session key to block invalid requests. Such a filtering usually exists in protection software like anti-virus, DRM and etc. We have implemented bypass for <code>GetCurrentProcessId</code> and <code>GetCurrentThreadId</code> function.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="ln"> 1</span><span class="c1">// target/src/agent.cpp
+</span><span class="ln"> 2</span><span class="c1"></span><span class="p">...</span>
+<span class="ln"> 3</span><span class="k">case</span> <span class="nl">ANTI_IOCTL_FILTER</span><span class="p">:</span>
+<span class="ln"> 4</span>		<span class="n">psGetCurrentProcessId</span> <span class="o">=</span> <span class="n">resolve_KernelFunction</span><span class="p">(</span><span class="n">sPsGetCurrentProcessId</span><span class="p">);</span>
+<span class="ln"> 5</span>		<span class="n">psGetCurrentThreadId</span> <span class="o">=</span> <span class="n">resolve_KernelFunction</span><span class="p">(</span><span class="n">sPsGetCurrentThreadId</span><span class="p">);</span>
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>		<span class="o">*</span><span class="p">(</span><span class="n">uint32_t</span><span class="o">*</span><span class="p">)(</span><span class="n">ioctl_filter_bypass</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">GetCurrentProcessId</span><span class="p">();</span>
+<span class="ln"> 8</span>		<span class="n">kAFL_hypercallEx</span><span class="p">(</span><span class="n">HYPERCALL_KAFL_MEMWRITE</span><span class="p">,</span> <span class="n">psGetCurrentProcessId</span> <span class="o">+</span> <span class="mh">0x10</span><span class="p">,</span> <span class="p">(</span><span class="n">uint64_t</span><span class="p">)</span><span class="n">ioctl_filter_bypass</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ioctl_filter_bypass</span><span class="p">));</span>
+<span class="ln"> 9</span>		<span class="o">*</span><span class="p">(</span><span class="n">uint32_t</span><span class="o">*</span><span class="p">)(</span><span class="n">ioctl_filter_bypass</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
+<span class="ln">10</span>		<span class="n">kAFL_hypercallEx</span><span class="p">(</span><span class="n">HYPERCALL_KAFL_MEMWRITE</span><span class="p">,</span> <span class="n">psGetCurrentThreadId</span> <span class="o">+</span> <span class="mh">0x10</span><span class="p">,</span> <span class="p">(</span><span class="n">uint64_t</span><span class="p">)</span><span class="n">ioctl_filter_bypass</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ioctl_filter_bypass</span><span class="p">));</span>
+<span class="ln">11</span>		<span class="k">break</span><span class="p">;</span>
+<span class="ln">12</span>	<span class="p">}</span>
+</code></pre></div><p>
+<picture class="nav_logo" data-lit="https://example.com/images/posts/irpt/kernelpatch.png" data-dark="https://example.com/images/posts/irpt/kernelpatch.png">
+  <source srcset="https://example.com/images/posts/irpt/kernelpatch.png" media="(prefers-color-scheme: dark)">
+  <img srcset="https://example.com/images/posts/irpt/kernelpatch.png" alt="kernel patch">
+</picture>
+
+We can insert shellcode into kernel memory using <code>write_virtual_memory</code> function. The patched function returns only zero if the current process ID is the same as the agent's ID.
+<br><br></p>
+<h5 id="irp-program">IRP Program</h5>
+<p>
+<picture class="nav_logo" data-lit="https://example.com/images/posts/irpt/irpprogram.png" data-dark="https://example.com/images/posts/irpt/irpprogram-light.png">
+  <source srcset="https://example.com/images/posts/irpt/irpprogram-light.png" media="(prefers-color-scheme: dark)">
+  <img srcset="https://example.com/images/posts/irpt/irpprogram.png" alt="IRP Program">
+</picture>
+
+<code>IRP Program</code> is a basic unit of all components of IRPT. It contains several IRP classes corresponding to DeviceIoControl call. The reason why we use this structure as a unit is to solve the following problems. We will call it <code>program</code> from now on.</p>
+<p><strong>Dependency reset</strong> <br>
+To avoid previous IRP request, we have to reload a driver at a certain point.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln">1</span><span class="c1"># fuzzer/process/process.py</span>
+<span class="ln">2</span>	<span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">program</span><span class="p">):</span>
+<span class="ln">3</span>	    <span class="bp">self</span><span class="o">.</span><span class="n">__set_current_program_with_count</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
+<span class="ln">4</span>	    <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">reload_driver</span><span class="p">()</span> <span class="c1"># reload!</span>
+<span class="ln">5</span>	
+<span class="ln">6</span>	    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cur_program</span><span class="o">.</span><span class="n">irps</span><span class="p">)):</span>
+<span class="ln">7</span>	        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_irp</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="ln">8</span>	            <span class="k">return</span> <span class="bp">True</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln">1</span><span class="k">def</span> <span class="nf">_revert_driver</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln">2</span>        <span class="k">try</span><span class="p">:</span>
+<span class="ln">3</span>            <span class="bp">self</span><span class="o">.</span><span class="n">send_irp</span><span class="p">(</span><span class="n">IRP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">qemu_protocol</span><span class="o">.</span><span class="n">DRIVER_REVERT</span><span class="p">))</span>
+<span class="ln">4</span>        <span class="k">except</span> <span class="n">ConnectionResetError</span><span class="p">:</span>
+<span class="ln">5</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<span class="ln">6</span>
+<span class="ln">7</span><span class="k">def</span> <span class="nf">_reload_driver</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln">8</span>	<span class="bp">self</span><span class="o">.</span><span class="n">send_irp</span><span class="p">(</span><span class="n">IRP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">qemu_protocol</span><span class="o">.</span><span class="n">DRIVER_RELOAD</span><span class="p">))</span>
+</code></pre></div><p>IRPT reloads a target driver in every execution of <code>program</code> via <code>qemu._reload_driver</code> function. For the target driver can't reload manually, we provide revert option. However, this option is experimental and unstable for some drivers.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="ln"> 1</span><span class="kt">void</span> <span class="nf">handle_hypercall_irpt_ip_filtering</span><span class="p">(</span><span class="k">struct</span> <span class="n">kvm_run</span> <span class="o">*</span><span class="n">run</span><span class="p">,</span> <span class="n">CPUState</span> <span class="o">*</span><span class="n">cpu</span><span class="p">)</span> <span class="p">{</span>
+<span class="ln"> 2</span>	<span class="p">...</span>
+<span class="ln"> 3</span>		<span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&amp;&amp;</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+<span class="ln"> 4</span>			<span class="n">uint64_t</span> <span class="n">start</span> <span class="o">=</span> <span class="n">run</span><span class="o">-&gt;</span><span class="n">hypercall</span><span class="p">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="ln"> 5</span>			<span class="n">uint64_t</span> <span class="n">end</span> <span class="o">=</span> <span class="n">run</span><span class="o">-&gt;</span><span class="n">hypercall</span><span class="p">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="ln"> 6</span>			<span class="p">...</span>
+<span class="ln"> 7</span>
+<span class="ln"> 8</span>			<span class="n">read_virtual_memory</span><span class="p">(</span><span class="n">driver_info</span><span class="p">.</span><span class="n">imagebase</span><span class="p">,</span> <span class="n">driver_info</span><span class="p">.</span><span class="n">image</span><span class="p">,</span> <span class="n">driver_info</span><span class="p">.</span><span class="n">imagesize</span> <span class="p">,</span> <span class="n">cpu</span><span class="p">);</span>
+<span class="ln"> 9</span>			<span class="n">pt_enable_ip_filtering</span><span class="p">(</span><span class="n">cpu</span><span class="p">,</span> <span class="n">filter_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+<span class="ln">10</span>			<span class="k">return</span><span class="p">;</span>
+<span class="ln">11</span>		<span class="p">}</span>
+<span class="ln">12</span>		<span class="c1">// Revert mode
+</span><span class="ln">13</span><span class="c1"></span>		<span class="n">write_virtual_memory</span><span class="p">(</span><span class="n">driver_info</span><span class="p">.</span><span class="n">imagebase</span><span class="p">,</span> <span class="n">driver_info</span><span class="p">.</span><span class="n">image</span><span class="p">,</span> <span class="n">driver_info</span><span class="p">.</span><span class="n">imagesize</span> <span class="p">,</span> <span class="n">cpu</span><span class="p">);</span>
+<span class="ln">14</span>	<span class="p">}</span>
+<span class="ln">15</span><span class="p">}</span>
+</code></pre></div><p>It just copies the entire image of the target driver right after the driver is loaded. And pastes it when the dependency reset is needed.</p>
+<p><strong>Order dependency</strong> <br>
+If we operate the fuzzing process with <code>program</code>, the fuzzer can recognize the order of the IRP requests.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="c1"># wdm/program.py</span>
+<span class="ln"> 2</span><span class="k">class</span> <span class="nc">Program</span><span class="p">:</span>
+<span class="ln"> 3</span>	<span class="o">...</span>
+<span class="ln"> 4</span>	<span class="k">def</span> <span class="nf">mutate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">corpus_programs</span><span class="p">):</span>
+<span class="ln"> 5</span>	  <span class="o">...</span>
+<span class="ln"> 6</span>	  <span class="k">if</span> <span class="n">rand</span><span class="o">.</span><span class="n">oneOf</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__splice</span><span class="p">(</span><span class="n">corpus_programs</span><span class="p">):</span>
+<span class="ln"> 7</span>	      <span class="n">method</span> <span class="o">=</span> <span class="s2">&#34;splice&#34;</span>
+<span class="ln"> 8</span>	  <span class="k">elif</span> <span class="n">rand</span><span class="o">.</span><span class="n">oneOf</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__swapIRP</span><span class="p">():</span>
+<span class="ln"> 9</span>	      <span class="n">method</span> <span class="o">=</span> <span class="s2">&#34;swapIRP&#34;</span>
+<span class="ln">10</span>	  <span class="k">elif</span> <span class="n">rand</span><span class="o">.</span><span class="n">oneOf</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__insertIRP</span><span class="p">(</span><span class="n">corpus_programs</span><span class="p">):</span>
+<span class="ln">11</span>	      <span class="n">method</span> <span class="o">=</span> <span class="s2">&#34;insertIRP&#34;</span>
+<span class="ln">12</span>	  <span class="k">elif</span> <span class="n">rand</span><span class="o">.</span><span class="n">oneOf</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__removeIRP</span><span class="p">():</span>
+<span class="ln">13</span>	      <span class="n">method</span> <span class="o">=</span> <span class="s2">&#34;removeIRP&#34;</span>
+<span class="ln">14</span>	  
+<span class="ln">15</span>	  <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+<span class="ln">16</span>	  <span class="k">return</span> <span class="n">method</span>
+</code></pre></div><p>The mutation of the order allows <code>fuzzer</code> to know which order is interesting. Details of mutation algorithm is described in the following sections.
+<br><br></p>
+<h5 id="mutator">Mutator</h5>
+<p>The <code>mutator</code> is designed to generate various types of IRP. We will continue to discuss and develop mutation strategies reflecting characteristics of the Windows driver. 
+There are three main categories of mutation.</p>
+<p><strong>1.  Program mutation</strong> <br>
+It is used to mutate structure of program and divided into four sub routines below. Each routine has a random probability.</p>
+<p><code>splice</code> : Merges with random IRP Program. (about 5%) <br>
+<code>swapIRP</code> : Swap the location of two IRP. (about 9.5%) <br>
+<code>insertIRP</code> : Insert IRP at the random location. (about 8.55%) <br>
+<code>removeIRP</code> : Remove IRP at the random location. (about 15.39%) <br></p>
+<p><strong>2.  deterministic</strong> <br>
+Most of its strategies come from afl's deterministic. When the program goes through fuzzing steps at first, and tweaks to some regions in the IRP are observed to have effect on the execution path, except in these two cases maybe excluded from deterministic logic - and the fuzzer may proceed straight to havoc.</p>
+<p>The deterministic strategies include below and most of them tweak InputBuffer of IRP: <br>
+<code>Walking bit and byte flips</code> : Sequential bit and byte flips with varying lengths and stepovers (Same as afl) <br>
+<code>Simple arithmetics</code> : Sequential addition and subtraction of small integers (Same as afl) <br>
+<code>Known integers</code> : Sequential insertion of known interesting integers (Same as afl) <br>
+<code>One day</code> : Interesting edge cases only can occur in IOCTL. <br></p>
+<p><strong>3.  havoc</strong> <br>
+As you know, deterministic strategies are not exhaustive. <code>havoc</code> calculates a more diverse and random value reflecting the characteristics of IOCTL communication.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="c1"># fuzzer/technique/havoc.py</span>
+<span class="ln"> 2</span><span class="k">def</span> <span class="nf">mutate_seq_8_bit_rand8bit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span class="ln"> 3</span>  <span class="o">...</span>
+<span class="ln"> 4</span>      <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+<span class="ln"> 5</span>          <span class="n">value</span> <span class="o">=</span> <span class="n">in_range_8</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">Intn</span><span class="p">(</span><span class="mh">0xff</span><span class="p">))</span>
+<span class="ln"> 6</span>          <span class="k">if</span> <span class="p">(</span><span class="n">is_not_bitflip</span><span class="p">(</span><span class="n">orig</span> <span class="o">^</span> <span class="n">value</span><span class="p">)</span> <span class="ow">and</span>
+<span class="ln"> 7</span>              <span class="n">is_not_arithmetic</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span>
+<span class="ln"> 8</span>              <span class="n">is_not_interesting</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+<span class="ln"> 9</span>                  <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<span class="ln">10</span>                  <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_irp</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+<span class="ln">11</span>                      <span class="k">return</span> <span class="bp">True</span>
+</code></pre></div><p>Check if it can be made by deterministic strategies before sending to <code>agent</code>, so duplicated test cases are not executed.
+T
+he havoc strategies include below: <br>
+<code>Walking random bytes insertion</code> : Sequential random bytes insertion with varying lengths. <br>
+<code>Random integers</code> :  Sequential insertion of random integers. <br>
+<code>Random buffer length</code> : Insertion of random InputBufferLength and OutputBufferLength. <br>
+<code>Bruteforce IRP requests</code> : Send a random program many times. <br>
+<br><br></p>
+<h5 id="optimizer">Optimizer</h5>
+<p>It validates a mutated test case once again and leaves only the programs that affect the new coverage.</p>
+<p><strong>Validation</strong> <br></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="c1"># wdm/optimizer.py</span>
+<span class="ln"> 2</span><span class="k">def</span> <span class="nf">optimize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln"> 3</span>    <span class="o">...</span>
+<span class="ln"> 4</span>		<span class="c1"># quick validation.</span>
+<span class="ln"> 5</span>    <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">turn_on_coverage_map</span><span class="p">()</span>
+<span class="ln"> 6</span>    <span class="n">new_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__execute</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">irps</span><span class="p">)</span>
+<span class="ln"> 7</span>    <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">turn_off_coverage_map</span><span class="p">()</span>
+<span class="ln"> 8</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">new_res</span><span class="p">:</span>
+<span class="ln"> 9</span>        <span class="k">continue</span>
+<span class="ln">10</span>    
+<span class="ln">11</span>    <span class="n">old_array</span> <span class="o">=</span> <span class="n">old_res</span><span class="o">.</span><span class="n">copy_to_array</span><span class="p">()</span>
+<span class="ln">12</span>    <span class="n">new_array</span> <span class="o">=</span> <span class="n">new_res</span><span class="o">.</span><span class="n">copy_to_array</span><span class="p">()</span>
+<span class="ln">13</span>    <span class="k">if</span> <span class="n">new_array</span> <span class="o">!=</span> <span class="n">old_array</span><span class="p">:</span>
+<span class="ln">14</span>        <span class="k">continue</span>
+</code></pre></div><p>The Intel PT trace consists of a sequence of packets and FUP (Flow Update Packet) for asynchronous event. Even if the program has no effect on the execution path, the bitmap can be different due to FUP. So the <code>optimizer</code> compares original bitmap with the newly calculated bitmap.</p>
+<p><strong>Minization</strong> <br></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="c1"># wdm/optimizer.py</span>
+<span class="ln"> 2</span><span class="k">def</span> <span class="nf">optimize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln"> 3</span>		<span class="o">...</span>
+<span class="ln"> 4</span>		<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">irps</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">irps</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="ln"> 5</span>	      <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__execute</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">irps</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">program</span><span class="o">.</span><span class="n">irps</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:])</span>
+<span class="ln"> 6</span>	      <span class="k">if</span> <span class="ow">not</span> <span class="n">exec_res</span><span class="p">:</span>
+<span class="ln"> 7</span>	          <span class="k">continue</span>
+<span class="ln"> 8</span>	      
+<span class="ln"> 9</span>	      <span class="n">dependent</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="ln">10</span>	      <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">new_bytes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="ln">11</span>	          <span class="k">if</span> <span class="n">exec_res</span><span class="o">.</span><span class="n">cbuffer</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">!=</span> <span class="n">new_bytes</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+<span class="ln">12</span>	              <span class="n">dependent</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="ln">13</span>	              <span class="k">break</span>
+<span class="ln">14</span>	      <span class="k">if</span> <span class="ow">not</span> <span class="n">dependent</span><span class="p">:</span>
+<span class="ln">15</span>	          <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">new_bits</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="ln">16</span>	              <span class="k">if</span> <span class="n">exec_res</span><span class="o">.</span><span class="n">cbuffer</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">!=</span> <span class="n">new_bits</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+<span class="ln">17</span>	                  <span class="n">dependent</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="ln">18</span>	                  <span class="k">break</span>
+<span class="ln">19</span>	      <span class="k">if</span> <span class="ow">not</span> <span class="n">dependent</span><span class="p">:</span>
+<span class="ln">20</span>	          <span class="k">del</span> <span class="n">program</span><span class="o">.</span><span class="n">irps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="ln">21</span>	      <span class="k">else</span><span class="p">:</span>
+<span class="ln">22</span>	          <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div><p>After validation, the <code>optimizer</code> minimizes a mutated program by removing non-dependent IRP. (<code>dependent</code> meaning it effects on the new execution path)
+<br><br></p>
+<h5 id="corpus-database">Corpus database</h5>
+<p>The number of programs will be increased gradually as the <code>fuzzer</code> continues to run. Some of them may have duplicated coverage or won't need to mutate anymore.</p>
+<p><strong>coverage map</strong> <br></p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="ln"> 1</span><span class="kt">void</span> <span class="nf">pt_bitmap</span><span class="p">(</span><span class="n">uint64_t</span> <span class="n">addr</span><span class="p">){</span>
+<span class="ln"> 2</span>	<span class="p">...</span>
+<span class="ln"> 3</span>	<span class="k">if</span><span class="p">(</span><span class="n">bitmap</span><span class="p">){</span>
+<span class="ln"> 4</span>		<span class="n">addr</span> <span class="o">-=</span> <span class="n">module_base_address</span><span class="p">;</span>
+<span class="ln"> 5</span>		<span class="k">if</span> <span class="p">(</span><span class="n">is_coveraged</span> <span class="o">&amp;&amp;</span> <span class="n">coverage_map</span><span class="p">)</span> <span class="p">{</span>
+<span class="ln"> 6</span>			<span class="n">coverage_map</span><span class="p">[</span><span class="n">addr</span> <span class="o">%</span> <span class="p">(</span><span class="n">kafl_coverage_map_size</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">uint16_t</span><span class="p">))]</span> <span class="o">=</span> <span class="o">++</span><span class="n">coverage_id</span><span class="p">;</span>
+<span class="ln"> 7</span>		<span class="p">}</span>
+<span class="ln"> 8</span>		<span class="p">...</span>
+<span class="ln"> 9</span>		<span class="n">bitmap</span><span class="p">[</span><span class="n">transition_value</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">kafl_bitmap_size</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span><span class="o">++</span><span class="p">;</span>
+<span class="ln">10</span>	<span class="p">}</span>
+<span class="ln">11</span>	<span class="n">last_ip</span> <span class="o">=</span> <span class="n">addr</span><span class="p">;</span> 
+<span class="ln">12</span><span class="p">}</span>
+</code></pre></div><p>We use a <code>coverage_map</code> containing execution flow of the program to determine if two programs has the same coverage.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln">1</span><span class="k">def</span> <span class="nf">turn_on_coverage_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln">2</span>    <span class="bp">self</span><span class="o">.</span><span class="n">__debug_send</span><span class="p">(</span><span class="n">qemu_protocol</span><span class="o">.</span><span class="n">COVERAGE_ON</span><span class="p">)</span>
+<span class="ln">3</span>    
+<span class="ln">4</span><span class="k">def</span> <span class="nf">turn_off_coverage_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln">5</span>		<span class="bp">self</span><span class="o">.</span><span class="n">__debug_send</span><span class="p">(</span><span class="n">qemu_protocol</span><span class="o">.</span><span class="n">COVERAGE_OFF</span><span class="p">)</span>
+</code></pre></div><p>To avoid performance bottleneck, perform related operations only after calling the <code>turn_on_coverage_map</code> function.</p>
+<p><strong>Deduplication</strong> <br>
+The <code>corpus database</code> has two groups of the program, programs and unique_programs. <code>unique_program</code>s is a group that has unique execution flows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="c1"># wdm/database.py</span>
+<span class="ln"> 2</span><span class="k">def</span> <span class="nf">__unique_selection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_programs</span><span class="p">):</span>
+<span class="ln"> 3</span>		<span class="o">...</span>
+<span class="ln"> 4</span>    <span class="k">for</span> <span class="n">new_program</span> <span class="ow">in</span> <span class="n">new_programs</span><span class="p">:</span>
+<span class="ln"> 5</span>        <span class="n">new_coverage_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">new_program</span><span class="o">.</span><span class="n">coverage_map</span><span class="p">)</span>
+<span class="ln"> 6</span>
+<span class="ln"> 7</span>        <span class="c1"># Remove a duplicated unique program.</span>
+<span class="ln"> 8</span>        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ln"> 9</span>        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unique_programs</span><span class="p">):</span>
+<span class="ln">10</span>            <span class="n">old_coverage_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unique_programs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">coverage_map</span><span class="p">)</span>
+<span class="ln">11</span>            
+<span class="ln">12</span>            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ln">13</span>            <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">new_coverage_set</span><span class="p">:</span>
+<span class="ln">14</span>                <span class="k">if</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">old_coverage_set</span><span class="p">:</span>
+<span class="ln">15</span>                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ln">16</span>
+<span class="ln">17</span>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">old_coverage_set</span><span class="p">)</span> <span class="o">==</span> <span class="n">count</span><span class="p">:</span>
+<span class="ln">18</span>                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">unique_programs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="ln">19</span>            <span class="k">else</span><span class="p">:</span>
+<span class="ln">20</span>		            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ln">21</span>        <span class="bp">self</span><span class="o">.</span><span class="n">unique_programs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_program</span><span class="p">)</span>
+</code></pre></div><p>The <code>__unique_selection</code> function is invoked when a new interesting program finished optimizing. It keeps group to have only unique programs using <code>coverage_map</code>.</p>
+<p><strong>Scoring</strong> <br>
+In order to prioritize unique programs, we compute probability map with depth of mutation(<code>level</code>), number of executions(<code>exec_count</code>) and number of code blocks executed.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="c1"># wdm/database.py</span>
+<span class="ln"> 2</span><span class="k">def</span> <span class="nf">update_probability_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln"> 3</span>    <span class="o">...</span>
+<span class="ln"> 4</span>    <span class="k">for</span> <span class="n">uniq_program</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">unique_programs</span><span class="p">:</span>
+<span class="ln"> 5</span>        <span class="n">score</span>  <span class="o">=</span> <span class="n">REMOVE_THRESHOLD</span>
+<span class="ln"> 6</span>        <span class="n">score</span> <span class="o">+=</span> <span class="n">uniq_program</span><span class="o">.</span><span class="n">get_level</span><span class="p">()</span> <span class="o">*</span> <span class="mi">20</span>
+<span class="ln"> 7</span>        <span class="n">score</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">uniq_program</span><span class="o">.</span><span class="n">coverage_map</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="ln"> 8</span>        <span class="n">score</span> <span class="o">-=</span> <span class="n">uniq_program</span><span class="o">.</span><span class="n">get_exec_count</span><span class="p">()</span> <span class="o">*</span> <span class="mi">20</span>
+<span class="ln"> 9</span>        <span class="n">score</span>  <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="ln">10</span>
+<span class="ln">11</span>        <span class="n">total_score</span> <span class="o">+=</span> <span class="n">score</span>
+<span class="ln">12</span>        <span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+<span class="ln">13</span>    
+<span class="ln">14</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">uniq_program</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unique_programs</span><span class="p">):</span>
+<span class="ln">15</span>        <span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">total_score</span>
+<span class="ln">16</span><span class="o">...</span>
+<span class="ln">17</span><span class="k">def</span> <span class="nf">get_next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln">18</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unique_programs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">rand</span><span class="o">.</span><span class="n">oneOf</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>        
+<span class="ln">19</span>            <span class="n">program</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">programs</span><span class="p">)</span>
+<span class="ln">20</span>        <span class="k">else</span><span class="p">:</span>
+<span class="ln">21</span>            <span class="n">program</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unique_programs</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span><span class="p">)</span>
+<span class="ln">22</span>       <span class="k">return</span> <span class="n">program</span>
+</code></pre></div><p>We should continue to find the optimal probability equation.
+<br><br></p>
+<h5 id="reproducer">Reproducer</h5>
+<p>It is responsible for crash reproduction. Because, we run the Windows kernel under the QEMU, occasionally encounters errors and stops while communicating with the <code>fuzzer</code>. So we should have to validate crashing test case once again.</p>
+<p><strong>De-duping crashes</strong> <br></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="c1"># wdm/reproducer.py</span>
+<span class="ln"> 2</span><span class="k">def</span> <span class="nf">reproduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ln"> 3</span>		<span class="o">...</span>
+<span class="ln"> 4</span>		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">irps</span><span class="p">)):</span>
+<span class="ln"> 5</span>		      <span class="n">exec_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">send_irp</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">irps</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="ln"> 6</span>		
+<span class="ln"> 7</span>		      <span class="k">if</span> <span class="n">exec_res</span><span class="o">.</span><span class="n">is_crash</span><span class="p">():</span>
+<span class="ln"> 8</span>		          <span class="n">log</span><span class="p">(</span><span class="s2">&#34;[*] </span><span class="si">%s</span><span class="s2"> found!!&#34;</span> <span class="o">%</span> <span class="n">exec_res</span><span class="o">.</span><span class="n">exit_reason</span><span class="p">,</span> <span class="s2">&#34;CRASH&#34;</span><span class="p">)</span>
+<span class="ln"> 9</span>		          <span class="o">...</span>
+<span class="ln">10</span>		
+<span class="ln">11</span>		          <span class="n">unique</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="ln">12</span>		          <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">exec_res</span><span class="o">.</span><span class="n">coverage_to_array</span><span class="p">():</span>
+<span class="ln">13</span>		              <span class="k">if</span> <span class="n">address</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">crash_map</span><span class="p">:</span>
+<span class="ln">14</span>		                  <span class="n">unique</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="ln">15</span>		              <span class="bp">self</span><span class="o">.</span><span class="n">crash_map</span><span class="p">[</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+</code></pre></div><p>The crash_map has all the listing of the crashing programs' block addresses. If the listing of the newly found crashing programs' addresses contain an address that is not included in crash_map, it is classified as a unique crash.</p>
+
+    <div class="pager">
+  
+  <div class="pager_item prev">
+    
+    <a href="https://example.com/docs/irec/internals/" class="pager_link button" title="Core concepts">
+      <span class="pager_label">Core concepts</span>
+    </a>
+  </div>
+  
+
+  
+  <div class="pager_item next">
+    
+    <a href="https://example.com/search/" class="pager_link button" title="Search">
+      <span class="pager_label">Search</span>
+    </a>
+  </div>
+  
+</div>
+<svg width="0" height="0" class="hidden">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492.004 492.004" id="next">
+    <path d="M484.14 226.886L306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" id="search">
+    <path d="M508.874 478.708L360.142 329.976c28.21-34.827 45.191-79.103 45.191-127.309C405.333 90.917 314.416 0 202.666 0S0 90.917 0 202.667s90.917 202.667 202.667 202.667c48.206 0 92.482-16.982 127.309-45.191l148.732 148.732c4.167 4.165 10.919 4.165 15.086 0l15.081-15.082c4.165-4.166 4.165-10.92-.001-15.085zM202.667 362.667c-88.229 0-160-71.771-160-160s71.771-160 160-160 160 71.771 160 160-71.771 160-160 160z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241 179" id="harmburger">
+    <path d="M1 10C1 4.477 5.477 0 11 0h220c5.523 0 10 4.477 10 10s-4.477 10-10 10H11C5.477 20 1 15.523 1 10zm0 80c0-5.523 4.477-10 10-10h220c5.523 0 10 4.477 10 10s-4.477 10-10 10H11c-5.523 0-10-4.477-10-10zm9 69c-5.523 0-10 4.477-10 10s4.477 10 10 10h220c5.523 0 10-4.477 10-10s-4.477-10-10-10H10z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401.998 401.998" id="sort">
+    <path d="M73.092 164.452h255.813c4.949 0 9.233-1.807 12.848-5.424 3.613-3.616 5.427-7.898 5.427-12.847s-1.813-9.229-5.427-12.85L213.846 5.424C210.232 1.812 205.951 0 200.999 0s-9.233 1.812-12.85 5.424L60.242 133.331c-3.617 3.617-5.424 7.901-5.424 12.85 0 4.948 1.807 9.231 5.424 12.847 3.621 3.617 7.902 5.424 12.85 5.424zm255.813 73.097H73.092c-4.952 0-9.233 1.808-12.85 5.421-3.617 3.617-5.424 7.898-5.424 12.847s1.807 9.233 5.424 12.848L188.149 396.57c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428l127.907-127.906c3.613-3.614 5.427-7.898 5.427-12.848 0-4.948-1.813-9.229-5.427-12.847-3.614-3.616-7.899-5.42-12.848-5.42z"></path>
+  </symbol>
+</svg>
+
+<svg width="0" height="0" class="hidden">
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.001 18.001" id="twitter">
+    <path d="M15.891 4.013c.808-.496 1.343-1.173 1.605-2.034a8.68 8.68 0 0 1-2.351.861c-.703-.756-1.593-1.14-2.66-1.14-1.043 0-1.924.366-2.643 1.078a3.56 3.56 0 0 0-1.076 2.605c0 .309.039.585.117.819-3.076-.105-5.622-1.381-7.628-3.837-.34.601-.51 1.213-.51 1.846 0 1.301.549 2.332 1.645 3.089-.625-.053-1.176-.211-1.645-.47 0 .929.273 1.705.82 2.388a3.623 3.623 0 0 0 2.115 1.291c-.312.08-.641.118-.979.118-.312 0-.533-.026-.664-.083.23.757.664 1.371 1.291 1.841a3.652 3.652 0 0 0 2.152.743C4.148 14.173 2.625 14.69.902 14.69c-.422 0-.721-.006-.902-.038 1.697 1.102 3.586 1.649 5.676 1.649 2.139 0 4.029-.542 5.674-1.626 1.645-1.078 2.859-2.408 3.639-3.974a10.77 10.77 0 0 0 1.172-4.892v-.468a7.788 7.788 0 0 0 1.84-1.921 8.142 8.142 0 0 1-2.11.593z"
+      ></path>
+  </symbol>
+  <symbol aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="mail">
+    <path  d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="calendar">
+    <path d="M452 40h-24V0h-40v40H124V0H84v40H60C26.916 40 0 66.916 0 100v352c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60V100c0-33.084-26.916-60-60-60zm20 412c0 11.028-8.972 20-20 20H60c-11.028 0-20-8.972-20-20V188h432v264zm0-304H40v-48c0-11.028 8.972-20 20-20h24v40h40V80h264v40h40V80h24c11.028 0 20 8.972 20 20v48z"></path>
+    <path d="M76 230h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 310h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 390h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80-80h40v40h-40z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="github">
+    <path d="M255.968 5.329C114.624 5.329 0 120.401 0 262.353c0 113.536 73.344 209.856 175.104 243.872 12.8 2.368 17.472-5.568 17.472-12.384 0-6.112-.224-22.272-.352-43.712-71.2 15.52-86.24-34.464-86.24-34.464-11.616-29.696-28.416-37.6-28.416-37.6-23.264-15.936 1.728-15.616 1.728-15.616 25.696 1.824 39.2 26.496 39.2 26.496 22.848 39.264 59.936 27.936 74.528 21.344 2.304-16.608 8.928-27.936 16.256-34.368-56.832-6.496-116.608-28.544-116.608-127.008 0-28.064 9.984-51.008 26.368-68.992-2.656-6.496-11.424-32.64 2.496-68 0 0 21.504-6.912 70.4 26.336 20.416-5.696 42.304-8.544 64.096-8.64 21.728.128 43.648 2.944 64.096 8.672 48.864-33.248 70.336-26.336 70.336-26.336 13.952 35.392 5.184 61.504 2.56 68 16.416 17.984 26.304 40.928 26.304 68.992 0 98.72-59.84 120.448-116.864 126.816 9.184 7.936 17.376 23.616 17.376 47.584 0 34.368-.32 62.08-.32 70.496 0 6.88 4.608 14.88 17.6 12.352C438.72 472.145 512 375.857 512 262.353 512 120.401 397.376 5.329 255.968 5.329z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="rss">
+    <circle cx="3.429" cy="20.571" r="3.429"></circle>
+    <path d="M11.429 24h4.57C15.999 15.179 8.821 8.001 0 8v4.572c6.302.001 11.429 5.126 11.429 11.428z"></path>
+    <path d="M24 24C24 10.766 13.234 0 0 0v4.571c10.714 0 19.43 8.714 19.43 19.429z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="linkedin">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h362c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zM181 406h-60V196h60zm0-240h-60v-60h60zm210 240h-60V286c0-16.54-13.46-30-30-30s-30 13.46-30 30v120h-60V196h60v11.309C286.719 202.422 296.93 196 316 196c40.691.043 75 36.547 75 79.688zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" id="arrow">
+    <path d="M604.501 440.509L325.398 134.956c-5.331-5.357-12.423-7.627-19.386-7.27-6.989-.357-14.056 1.913-19.387 7.27L7.499 440.509c-9.999 10.024-9.999 26.298 0 36.323s26.223 10.024 36.222 0l262.293-287.164L568.28 476.832c9.999 10.024 26.222 10.024 36.221 0 9.999-10.023 9.999-26.298 0-36.323z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="carly">
+    <path d="M504.971 239.029L448 182.059V84c0-46.317-37.682-84-84-84h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c19.851 0 36 16.149 36 36v108c0 6.365 2.529 12.47 7.029 16.971L454.059 256l-47.029 47.029A24.002 24.002 0 0 0 400 320v108c0 19.851-16.149 36-36 36h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c46.318 0 84-37.683 84-84v-98.059l56.971-56.971c9.372-9.372 9.372-24.568 0-33.941zM112 192V84c0-19.851 16.149-36 36-36h44c13.255 0 24-10.745 24-24S205.255 0 192 0h-44c-46.318 0-84 37.683-84 84v98.059l-56.971 56.97c-9.373 9.373-9.373 24.568 0 33.941L64 329.941V428c0 46.317 37.682 84 84 84h44c13.255 0 24-10.745 24-24s-10.745-24-24-24h-44c-19.851 0-36-16.149-36-36V320c0-6.365-2.529-12.47-7.029-16.971L57.941 256l47.029-47.029A24.002 24.002 0 0 0 112 192z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="copy">
+    <path d="M23 2.75A2.75 2.75 0 0 0 20.25 0H8.75A2.75 2.75 0 0 0 6 2.75v13.5A2.75 2.75 0 0 0 8.75 19h11.5A2.75 2.75 0 0 0 23 16.25zM18.25 14.5h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5z"></path>
+    <path d="M8.75 20.5a4.255 4.255 0 0 1-4.25-4.25V2.75c0-.086.02-.166.025-.25H3.75A2.752 2.752 0 0 0 1 5.25v16A2.752 2.752 0 0 0 3.75 24h12a2.752 2.752 0 0 0 2.75-2.75v-.75z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.001 512.001" id="closeme">
+    <path d="M284.286 256.002L506.143 34.144c7.811-7.811 7.811-20.475 0-28.285-7.811-7.81-20.475-7.811-28.285 0L256 227.717 34.143 5.859c-7.811-7.811-20.475-7.811-28.285 0-7.81 7.811-7.811 20.475 0 28.285l221.857 221.857L5.858 477.859c-7.811 7.811-7.811 20.475 0 28.285a19.938 19.938 0 0 0 14.143 5.857 19.94 19.94 0 0 0 14.143-5.857L256 284.287l221.857 221.857c3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857c7.811-7.811 7.811-20.475 0-28.285L284.286 256.002z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="open-menu">
+    <path d="M492 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0-160H20C8.954 76 0 84.954 0 96s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0 320H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="youtube">
+    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="stackoverflow">
+    <path d="M21 27v-8h3v11H0V19h3v8h18z"></path><path d="M17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zm3.7 14.7L10.6 6.4l1.7-2 10.2 8.5-1.7 2zM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm-1.8 6.8l13.56 1.96.17-2.38-13.26-2.55-.47 2.97zM19 25H5v-3h14v3z"></path>
+  </symbol>
+</svg>
+
+  </main>
+</div>
+
+  </div>
+<footer class="pt-2 pb-2">
+  <div class="wrap">
+    <p>&copy; <span class="year">2021</span> <a href ="https://neuralvibes.com/author/" target="_blank" rel="noopener">Weru</a></p>
+  </div>
+</footer>
+
+
+<svg width="0" height="0" class="hidden">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492.004 492.004" id="next">
+    <path d="M484.14 226.886L306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" id="search">
+    <path d="M508.874 478.708L360.142 329.976c28.21-34.827 45.191-79.103 45.191-127.309C405.333 90.917 314.416 0 202.666 0S0 90.917 0 202.667s90.917 202.667 202.667 202.667c48.206 0 92.482-16.982 127.309-45.191l148.732 148.732c4.167 4.165 10.919 4.165 15.086 0l15.081-15.082c4.165-4.166 4.165-10.92-.001-15.085zM202.667 362.667c-88.229 0-160-71.771-160-160s71.771-160 160-160 160 71.771 160 160-71.771 160-160 160z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241 179" id="harmburger">
+    <path d="M1 10C1 4.477 5.477 0 11 0h220c5.523 0 10 4.477 10 10s-4.477 10-10 10H11C5.477 20 1 15.523 1 10zm0 80c0-5.523 4.477-10 10-10h220c5.523 0 10 4.477 10 10s-4.477 10-10 10H11c-5.523 0-10-4.477-10-10zm9 69c-5.523 0-10 4.477-10 10s4.477 10 10 10h220c5.523 0 10-4.477 10-10s-4.477-10-10-10H10z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401.998 401.998" id="sort">
+    <path d="M73.092 164.452h255.813c4.949 0 9.233-1.807 12.848-5.424 3.613-3.616 5.427-7.898 5.427-12.847s-1.813-9.229-5.427-12.85L213.846 5.424C210.232 1.812 205.951 0 200.999 0s-9.233 1.812-12.85 5.424L60.242 133.331c-3.617 3.617-5.424 7.901-5.424 12.85 0 4.948 1.807 9.231 5.424 12.847 3.621 3.617 7.902 5.424 12.85 5.424zm255.813 73.097H73.092c-4.952 0-9.233 1.808-12.85 5.421-3.617 3.617-5.424 7.898-5.424 12.847s1.807 9.233 5.424 12.848L188.149 396.57c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428l127.907-127.906c3.613-3.614 5.427-7.898 5.427-12.848 0-4.948-1.813-9.229-5.427-12.847-3.614-3.616-7.899-5.42-12.848-5.42z"></path>
+  </symbol>
+</svg>
+
+<svg width="0" height="0" class="hidden">
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.001 18.001" id="twitter">
+    <path d="M15.891 4.013c.808-.496 1.343-1.173 1.605-2.034a8.68 8.68 0 0 1-2.351.861c-.703-.756-1.593-1.14-2.66-1.14-1.043 0-1.924.366-2.643 1.078a3.56 3.56 0 0 0-1.076 2.605c0 .309.039.585.117.819-3.076-.105-5.622-1.381-7.628-3.837-.34.601-.51 1.213-.51 1.846 0 1.301.549 2.332 1.645 3.089-.625-.053-1.176-.211-1.645-.47 0 .929.273 1.705.82 2.388a3.623 3.623 0 0 0 2.115 1.291c-.312.08-.641.118-.979.118-.312 0-.533-.026-.664-.083.23.757.664 1.371 1.291 1.841a3.652 3.652 0 0 0 2.152.743C4.148 14.173 2.625 14.69.902 14.69c-.422 0-.721-.006-.902-.038 1.697 1.102 3.586 1.649 5.676 1.649 2.139 0 4.029-.542 5.674-1.626 1.645-1.078 2.859-2.408 3.639-3.974a10.77 10.77 0 0 0 1.172-4.892v-.468a7.788 7.788 0 0 0 1.84-1.921 8.142 8.142 0 0 1-2.11.593z"
+      ></path>
+  </symbol>
+  <symbol aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="mail">
+    <path  d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="calendar">
+    <path d="M452 40h-24V0h-40v40H124V0H84v40H60C26.916 40 0 66.916 0 100v352c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60V100c0-33.084-26.916-60-60-60zm20 412c0 11.028-8.972 20-20 20H60c-11.028 0-20-8.972-20-20V188h432v264zm0-304H40v-48c0-11.028 8.972-20 20-20h24v40h40V80h264v40h40V80h24c11.028 0 20 8.972 20 20v48z"></path>
+    <path d="M76 230h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 310h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 390h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80-80h40v40h-40z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="github">
+    <path d="M255.968 5.329C114.624 5.329 0 120.401 0 262.353c0 113.536 73.344 209.856 175.104 243.872 12.8 2.368 17.472-5.568 17.472-12.384 0-6.112-.224-22.272-.352-43.712-71.2 15.52-86.24-34.464-86.24-34.464-11.616-29.696-28.416-37.6-28.416-37.6-23.264-15.936 1.728-15.616 1.728-15.616 25.696 1.824 39.2 26.496 39.2 26.496 22.848 39.264 59.936 27.936 74.528 21.344 2.304-16.608 8.928-27.936 16.256-34.368-56.832-6.496-116.608-28.544-116.608-127.008 0-28.064 9.984-51.008 26.368-68.992-2.656-6.496-11.424-32.64 2.496-68 0 0 21.504-6.912 70.4 26.336 20.416-5.696 42.304-8.544 64.096-8.64 21.728.128 43.648 2.944 64.096 8.672 48.864-33.248 70.336-26.336 70.336-26.336 13.952 35.392 5.184 61.504 2.56 68 16.416 17.984 26.304 40.928 26.304 68.992 0 98.72-59.84 120.448-116.864 126.816 9.184 7.936 17.376 23.616 17.376 47.584 0 34.368-.32 62.08-.32 70.496 0 6.88 4.608 14.88 17.6 12.352C438.72 472.145 512 375.857 512 262.353 512 120.401 397.376 5.329 255.968 5.329z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="rss">
+    <circle cx="3.429" cy="20.571" r="3.429"></circle>
+    <path d="M11.429 24h4.57C15.999 15.179 8.821 8.001 0 8v4.572c6.302.001 11.429 5.126 11.429 11.428z"></path>
+    <path d="M24 24C24 10.766 13.234 0 0 0v4.571c10.714 0 19.43 8.714 19.43 19.429z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="linkedin">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h362c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zM181 406h-60V196h60zm0-240h-60v-60h60zm210 240h-60V286c0-16.54-13.46-30-30-30s-30 13.46-30 30v120h-60V196h60v11.309C286.719 202.422 296.93 196 316 196c40.691.043 75 36.547 75 79.688zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" id="arrow">
+    <path d="M604.501 440.509L325.398 134.956c-5.331-5.357-12.423-7.627-19.386-7.27-6.989-.357-14.056 1.913-19.387 7.27L7.499 440.509c-9.999 10.024-9.999 26.298 0 36.323s26.223 10.024 36.222 0l262.293-287.164L568.28 476.832c9.999 10.024 26.222 10.024 36.221 0 9.999-10.023 9.999-26.298 0-36.323z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="carly">
+    <path d="M504.971 239.029L448 182.059V84c0-46.317-37.682-84-84-84h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c19.851 0 36 16.149 36 36v108c0 6.365 2.529 12.47 7.029 16.971L454.059 256l-47.029 47.029A24.002 24.002 0 0 0 400 320v108c0 19.851-16.149 36-36 36h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c46.318 0 84-37.683 84-84v-98.059l56.971-56.971c9.372-9.372 9.372-24.568 0-33.941zM112 192V84c0-19.851 16.149-36 36-36h44c13.255 0 24-10.745 24-24S205.255 0 192 0h-44c-46.318 0-84 37.683-84 84v98.059l-56.971 56.97c-9.373 9.373-9.373 24.568 0 33.941L64 329.941V428c0 46.317 37.682 84 84 84h44c13.255 0 24-10.745 24-24s-10.745-24-24-24h-44c-19.851 0-36-16.149-36-36V320c0-6.365-2.529-12.47-7.029-16.971L57.941 256l47.029-47.029A24.002 24.002 0 0 0 112 192z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="copy">
+    <path d="M23 2.75A2.75 2.75 0 0 0 20.25 0H8.75A2.75 2.75 0 0 0 6 2.75v13.5A2.75 2.75 0 0 0 8.75 19h11.5A2.75 2.75 0 0 0 23 16.25zM18.25 14.5h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5z"></path>
+    <path d="M8.75 20.5a4.255 4.255 0 0 1-4.25-4.25V2.75c0-.086.02-.166.025-.25H3.75A2.752 2.752 0 0 0 1 5.25v16A2.752 2.752 0 0 0 3.75 24h12a2.752 2.752 0 0 0 2.75-2.75v-.75z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.001 512.001" id="closeme">
+    <path d="M284.286 256.002L506.143 34.144c7.811-7.811 7.811-20.475 0-28.285-7.811-7.81-20.475-7.811-28.285 0L256 227.717 34.143 5.859c-7.811-7.811-20.475-7.811-28.285 0-7.81 7.811-7.811 20.475 0 28.285l221.857 221.857L5.858 477.859c-7.811 7.811-7.811 20.475 0 28.285a19.938 19.938 0 0 0 14.143 5.857 19.94 19.94 0 0 0 14.143-5.857L256 284.287l221.857 221.857c3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857c7.811-7.811 7.811-20.475 0-28.285L284.286 256.002z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="open-menu">
+    <path d="M492 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0-160H20C8.954 76 0 84.954 0 96s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0 320H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="youtube">
+    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="stackoverflow">
+    <path d="M21 27v-8h3v11H0V19h3v8h18z"></path><path d="M17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zm3.7 14.7L10.6 6.4l1.7-2 10.2 8.5-1.7 2zM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm-1.8 6.8l13.56 1.96.17-2.38-13.26-2.55-.47 2.97zM19 25H5v-3h14v3z"></path>
+  </symbol>
+</svg>
+
+<script src="https://example.com/js/bundle.min.ec53e4736693eb9906de793d9cce7256c25e76ff096094d928b588f5ae06d56d743072e37aaa524493123264c3961c4957c6531acdffc765ccb4cc51f2ea6406.js"></script>
+</body>
+</html>
