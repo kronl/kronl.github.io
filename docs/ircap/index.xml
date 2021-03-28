@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IRCAP on Kronl</title>
-    <link>https://example.com/docs/ircap/</link>
+    <link>https://kronl.github.io/docs/ircap/</link>
     <description>Recent content in IRCAP on Kronl</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/ircap/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://kronl.github.io/docs/ircap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>https://example.com/docs/ircap/introduction/</link>
+      <link>https://kronl.github.io/docs/ircap/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/ircap/introduction/</guid>
+      <guid>https://kronl.github.io/docs/ircap/introduction/</guid>
       <description>A variety of interesting corpus are important to improve efficiency of coverage-guided fuzzing. If we able to capture I/O communication between an application and kernel, it will be of great help to fuzzer. So we had to find a way to use IRP requests as initial seeds.
 What is IRCAP? IRCAP allow you to intercept all IRP requests to the target driver without any side effects. It can be used to collect interesting corpus for fuzzing and can manipulate I/O communication between an application and kernel.</description>
     </item>
     
     <item>
       <title>Getting Started</title>
-      <link>https://example.com/docs/ircap/getting-started/</link>
+      <link>https://kronl.github.io/docs/ircap/getting-started/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/ircap/getting-started/</guid>
+      <guid>https://kronl.github.io/docs/ircap/getting-started/</guid>
       <description>How to use You need to install Visual Studio and Windows Driver Kit. Once you have completed building an driver development environment, open ircap/hook.h for editing.
 1// ircap/hook.h 2#pragma once 3 4UNICODE_STRING TARGET_DEVICE_NAME = RTL_CONSTANT_STRING(L&amp;#34;\\Driver\\@@DEVICE_NAME@@&amp;#34;); 5UNICODE_STRING PROGRAM_FILE_PATH = RTL_CONSTANT_STRING(L&amp;#34;\\DosDevices\\C:\\program.irp&amp;#34;); Specfiy TARGET_DEVICE_NAME to the device name you want to hook. And PROGRAM_FILE_PATH is the file path where captured IRP requests are stored.
 To capture IRP requests to target driver, follow these steps (Run cmd as administrator):</description>
@@ -28,10 +28,10 @@ To capture IRP requests to target driver, follow these steps (Run cmd as adminis
     
     <item>
       <title>Core concepts</title>
-      <link>https://example.com/docs/ircap/internals/</link>
+      <link>https://kronl.github.io/docs/ircap/internals/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/ircap/internals/</guid>
+      <guid>https://kronl.github.io/docs/ircap/internals/</guid>
       <description>IRCAP is a standalone driver which hooks DispatchDeviceControl of the target driver. Implementation 1// ircap/ircap.c 2NTSTATUS 3DriverEntry( 4	_In_ PDRIVER_OBJECT	DriverObject, 5	_In_ PUNICODE_STRING	RegistryPath 6	) 7{ 8	... 9	ntStatus = PsCreateSystemThread(&amp;amp;threadHandle, 10	THREAD_ALL_ACCESS, 11	NULL, 12	(HANDLE)0, 13	NULL, 14	ThreadIRPHooker, 15	NULL); 16 17	... 18	KeWaitForSingleObject(threadObject, Executive, KernelMode, FALSE, NULL); 19	... 20} It is loaded at boot time and creates a system thread with ThreadIRPHooker routine.</description>
     </item>
     

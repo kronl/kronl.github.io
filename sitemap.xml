@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/docs/</loc>
+    <loc>https://kronl.github.io/docs/</loc>
   </url><url>
-    <loc>https://example.com/docs/ircap/introduction/</loc>
+    <loc>https://kronl.github.io/docs/ircap/introduction/</loc>
   </url><url>
-    <loc>https://example.com/docs/irec/introduction/</loc>
+    <loc>https://kronl.github.io/docs/irec/introduction/</loc>
   </url><url>
-    <loc>https://example.com/docs/irpt/introduction/</loc>
+    <loc>https://kronl.github.io/docs/irpt/introduction/</loc>
   </url><url>
-    <loc>https://example.com/docs/irec/</loc>
+    <loc>https://kronl.github.io/docs/irec/</loc>
   </url><url>
-    <loc>https://example.com/docs/irpt/</loc>
+    <loc>https://kronl.github.io/docs/irpt/</loc>
   </url><url>
-    <loc>https://example.com/docs/ircap/getting-started/</loc>
+    <loc>https://kronl.github.io/docs/ircap/getting-started/</loc>
   </url><url>
-    <loc>https://example.com/docs/irec/getting-started/</loc>
+    <loc>https://kronl.github.io/docs/irec/getting-started/</loc>
   </url><url>
-    <loc>https://example.com/docs/irpt/getting-started/</loc>
+    <loc>https://kronl.github.io/docs/irpt/getting-started/</loc>
   </url><url>
-    <loc>https://example.com/docs/ircap/internals/</loc>
+    <loc>https://kronl.github.io/docs/ircap/internals/</loc>
   </url><url>
-    <loc>https://example.com/docs/irec/internals/</loc>
+    <loc>https://kronl.github.io/docs/irec/internals/</loc>
   </url><url>
-    <loc>https://example.com/docs/irpt/internals/</loc>
+    <loc>https://kronl.github.io/docs/irpt/internals/</loc>
   </url><url>
-    <loc>https://example.com/docs/ircap/</loc>
+    <loc>https://kronl.github.io/docs/ircap/</loc>
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://kronl.github.io/</loc>
   </url><url>
-    <loc>https://example.com/search/</loc>
+    <loc>https://kronl.github.io/search/</loc>
   </url>
 </urlset>
